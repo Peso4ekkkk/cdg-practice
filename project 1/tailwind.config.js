@@ -7,7 +7,7 @@ module.exports = {
           Montserrat:["Montserrat","sans-serif"],
         }
       },
-      screen:{
+      screens:{
         lg: "1280px",
         md: "792px",
         sm: "320px",
