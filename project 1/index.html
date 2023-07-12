@@ -6,22 +6,13 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/output.css" />
     <title>Landing page</title>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   </head>
   <body class="bg-white font-Montserrat">
     <header class="sticky top-0 container mx-auto border-b bg-white">
       <div class="flex justify-between items-center lg:mx-[5.3125rem] md:mx-[2.4375rem]">
           <img class="md:w-9 md:h-9 md:my-3 lg:ml-[5.3125rem] md:ml-[2.4375rem] sm:ml-[0.9375rem] sm:w-9 sm:h-9 sm:my-3" src="image/Logo.svg" alt="">
           <div class="bg-white">
-            <div class="block space-x-8 lg:flex md:hidden">
-            </div>
-            <div class="block md:hidden">
-              <div class="space-y-2">
-                <span class="block w-8 h-0.5 bg-gray-600 animate-pulse"></span>
-                <span class="block w-8 h-0.5 bg-gray-600 animate-pulse"></span>
-                <span class="block w-8 h-0.5 bg-gray-600 animate-pulse"></span>
-              </div>
-            </div>
-          </nav>
         <div class="hidden md:block">
           <a
             href="#main"
@@ -34,8 +25,22 @@
             >Get in touch</a
           >
         </div>
-      </div>
     </header>
+    <div class="md:hidden block fixed top-[.625rem] right-[2.8125rem] text-[2.5rem] cursor-pointer">
+      <ion-icon  name="menu-outline" onclick="Open(this)"></ion-icon>
+     </div>
+     <div class="bg-white text-greyDark flex justify-center sm:w-0  items-center text-[2.5rem] tracking-[.0625rem] overflow-hidden md:hidden " id="burger">
+      <ul>
+        <li><a href="#main">Main</a></li>
+        <li><a href="#About">About</a></li>
+        <li><a href="#get-in-touch">Get in touch</a></li>
+      </ul>
+     </div>
+     <script>let burger=document.getElementById('burger')
+      function Open(){
+       burger.classList.add('w-[100%]')
+      }
+      </script>
     <main id="main" class="container mx-auto">
       <div class="md:flex lg:h-[48rem] md:h-[28.4375rem] lg:bg-[url('image/human1.png')] 
       md:bg-[url('image/human1tab.png')] bg-right bg-no-repeat">
@@ -100,34 +105,34 @@
                             <p class="md:ml-[1rem] sm:ml-[1rem]" >Indie rock|Reggae</p>
                             <p class="font-semibold text-black lg:mt-[3.5rem] md:mt-[3.5rem] md:ml-[1rem] sm:mt-[2.75rem] sm:ml-[1rem]">Art </p>
                             <p class="md:ml-[1rem] sm:ml-[1rem]">Edvard Munch|Frida Kahlo</p>
-                            <p class="font-semibold text-black lg:mt-[4.5rem] md:mt-[3.25rem] md:ml-[1rem] sm:mt-[2.5rem] sm:ml-[1rem]">Photography </p>
+                            <p class="font-semibold text-black lg:mt-[3.75rem] md:mt-[3.25rem] md:ml-[1rem] sm:mt-[2.5rem] sm:ml-[1rem]">Photography </p>
                             <p class="md:ml-[1rem] sm:ml-[1rem]">Portraits</p>
                         </div>
                     </div>
                 </div>
-                <div class="sm:ml-[.9375rem ]">
+                <div class="sm:ml-[.9375rem]">
                     <h2 class="font-bold md:mt-[5rem] md:text-[1.5rem] md:ml-[2.4375rem] sm:mt-[3rem] ">Education & Experience</h2>
-                    <div class="flex justify-between md:ml-[2.4375rem] ">
+                    <div class="flex justify-between  ">
                       <p class="text-black  md:text-[1.25rem]
-                        sm:mt-[1.75rem] sm:text-[.875rem] sm:w-[7.5rem] sm:h-[1.3125rem]">2008-Present </p>
-                    <div>
-                        <p class="text-black font-semibold md:text-[1.25rem]
-                        sm:mt-[1.75rem] sm:text-[.875rem] sm:mr-[1.5rem]">Middle Frontend developer </p>
-                        <p class="md:text-[1.25rem] sm:mt-[.5rem] sm:ml-[7rem] sm:text-[.875rem]">Ozon</p>
+                        sm:mt-[1.75rem] sm:text-[.875rem] sm:w-[7.5rem] sm:h-[1.3125rem] md:ml-[2.4375rem] md:w-[9.5rem] md:h-[1.875rem]">2008-Present </p>
+                    <div class="flex flex-col justify-between lg:pl-1 md:pr-10">
+                        <p class="text-black font-semibold md:text-[1.25rem] 
+                        sm:mt-[1.75rem] sm:text-[.875rem] ">Middle Frontend developer </p>
+                        <p class="md:text-[1.25rem] sm:mt-[.5rem] sm:text-[.875rem]">Ozon</p>
                     </div>
                     </div>
-                    <div class="flex justify-between md:ml-[2.4375rem]">
-                      <p class="text-black  md:text-[1.25rem] sm:text-[.875rem] sm:mt-[1.5rem] sm:w-[7.5rem] sm:h-[1.3125rem]">2006-2007 </p>
-                    <div class="flex flex-col justify-between">
-                        <p class="text-black font-semibold md:text-[1.25rem] sm:text-[.875rem] sm:ml-[1.rem] sm:mt-[1.5rem]">Frontend development courses </p>
-                        <p class="md:text-[1.25rem] sm:text-[.875rem] sm:ml-[7rem] sm:mt-[.5rem]">Stepik</p>
+                    <div class="flex justify-between ">
+                      <p class="text-black  md:text-[1.25rem] md:ml-[2.4375rem] sm:text-[.875rem] sm:mt-[1.5rem] sm:w-[7.5rem] sm:h-[1.3125rem]  ">2006-2007 </p>
+                    <div class="flex flex-col justify-between md:pl-8">
+                        <p class="text-black font-semibold md:text-[1.25rem] sm:text-[.875rem] sm:mt-[1.5rem] ">Frontend development courses </p>
+                        <p class="md:text-[1.25rem] sm:text-[.875rem] sm:mt-[.5rem]">Stepik</p>
                       </div>
                     </div>
-                    <div class="flex justify-between md:ml-[2.4375rem]">
-                      <p class="text-black md:text-[1.25rem] sm:text-[.875rem] sm:mt-[1.5rem] sm:w-[7.5rem] sm:h-[1.3125rem]">2000-2005</p>
-                    <div class="flex flex-col justify-between">
-                        <p class="text-black font-semibold md:text-[1.25rem] sm:mr-[3.75rem] sm:text-[.875rem] sm:mt-[1.5rem]">Frontend developer </p>
-                        <p class="md:text-[1.25rem] sm:text-[.875rem] sm:ml-[7rem] sm:mt-[.5rem]">Saint Petersubrg State Univerity</p>
+                    <div class="flex justify-between ">
+                      <p class="text-black md:text-[1.25rem] md:ml-[2.4375rem] sm:text-[.875rem] sm:mt-[1.5rem] sm:w-[7.5rem] sm:h-[1.3125rem] ">2000-2005</p>
+                    <div class="flex flex-col justify-between mdpl-8 ">
+                        <p class="text-black font-semibold md:text-[1.25rem]  sm:text-[.875rem] sm:mt-[1.5rem] ">Frontend developer </p>
+                        <p class="md:text-[1.25rem] sm:text-[.875rem]  sm:mt-[.5rem]">Saint Petersubrg State Univerity</p>
                       </div>
                     </div>
                       
