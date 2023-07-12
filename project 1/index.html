@@ -10,6 +10,7 @@
   </head>
   <body class="bg-white font-Montserrat">
     <header class="sticky top-0 container mx-auto border-b bg-white">
+      
       <div class="flex justify-between items-center lg:mx-[5.3125rem] md:mx-[2.4375rem]">
           <img class="md:w-9 md:h-9 md:my-3 lg:ml-[5.3125rem] md:ml-[2.4375rem] sm:ml-[0.9375rem] sm:w-9 sm:h-9 sm:my-3" src="image/Logo.svg" alt="">
           <div class="bg-white">
@@ -26,21 +27,25 @@
           >
         </div>
     </header>
-    <div class="md:hidden block fixed top-[.625rem] right-[2.8125rem] text-[2.5rem] cursor-pointer">
-      <ion-icon  name="menu-outline" onclick="Open(this)"></ion-icon>
-     </div>
-     <div class="bg-white text-greyDark flex justify-center sm:w-0  items-center text-[2.5rem] tracking-[.0625rem] overflow-hidden md:hidden " id="burger">
-      <ul>
-        <li><a href="#main">Main</a></li>
-        <li><a href="#About">About</a></li>
-        <li><a href="#get-in-touch">Get in touch</a></li>
-      </ul>
-     </div>
-     <script>let burger=document.getElementById('burger')
-      function Open(){
-       burger.classList.add('w-[100%]')
+    <nav class="sm:flex sm:items-center mx-auto">
+      <div class="md:hidden block fixed top-[.625rem] right-[1.5rem] text-[2.5rem] text-greyDark ">
+        <ion-icon onclick="onToggleMenu(this)" class="cursor-pointer md:hidden " name="menu"></ion-icon>
+      </div>
+      <div class=" nav-links flex items-center  sm:absolute bg-white min-h-[60vh] top-[-100%] w-full text-greyDark  justify-center  text-[2rem] tracking-[.0625rem] overflow-hidden md:hidden  ">
+        <ul class="sm:flex-col sm:items-center md:hidden">
+          <li><a class="hover:text-lavender " href="#main">Main</a></li>
+          <li><a class="hover:text-lavender " href="#About">About</a></li>
+          <li><a class="hover:text-lavender " href="#get-in-touch">Get in touch</a></li>
+        </ul>
+      </div>
+    </nav>
+    <script>
+      const navlinks=document.querySelector('.nav-links')
+      function onToggleMenu(e){
+        e.name=e.name==='menu' ? 'close' : 'menu'
+        navlinks.classList.toggle('top-[9%]')
       }
-      </script>
+    </script>
     <main id="main" class="container mx-auto">
       <div class="md:flex lg:h-[48rem] md:h-[28.4375rem] lg:bg-[url('image/human1.png')] 
       md:bg-[url('image/human1tab.png')] bg-right bg-no-repeat">
