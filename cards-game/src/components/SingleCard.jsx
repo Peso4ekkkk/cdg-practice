@@ -4,22 +4,21 @@ export default function SingleCard({ card, handleChoice, flipped }) {
   const handleClick = () => {
     handleChoice(card);
   };
+
+  const wrapperClassname =
+    "border-[1px] border-white w-[96px] h-[96px] mb-9 bg-lavender relative cursor-pointer " +
+    (flipped ? "[transform:rotateY(180deg)]" : "[transform:rotateY(0)]");
+
+  const coverClassname =
+    "absolute w-full h-full flex items-center justify-center " +
+    (flipped ? "opacity-0" : "opacity-100");
+  const contentClassname =
+    "absolute object-cover " + (flipped ? "opacity-100" : "opacity-0");
+
   return (
-    <div className="card" key={card.id}>
-      <div className={flipped ? "flipped" : ""}></div>
-      <div className="border-[1px] border-white w-[96px] h-[96px]">
-        <div
-          className="back bg-lavender pl-[2.75rem] pb-[2.75rem] relative "
-          onClick={handleClick}
-        >
-          ?
-        </div>
-        <img
-          className="front bg-lavender block w-[100%] relative"
-          src={card.img}
-          alt="card front"
-        />
-      </div>
+    <div className={wrapperClassname} onClick={handleClick}>
+      <div className={coverClassname}>?</div>
+      <img className={contentClassname} src={card.img} alt="card front" />
     </div>
   );
 }

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import "./index.css";
-import SingleCard from "./components/SingleCard";
+import SingleCard from "./components/SingleCard.jsx";
 import bear from "./image/bear.png";
 import cow from "./image/cow.png";
 import elephant from "./image/elephant.png";
@@ -9,17 +8,20 @@ import mouse from "./image/mouse.png";
 import snail from "./image/snail.png";
 import squirrel from "./image/squirrel.png";
 import zebra from "./image/zebra.png";
+import "./index.css";
 
 const cardImages = [
-  { bear, matched: false },
-  { cow, matched: false },
-  { elephant, matched: false },
-  { kangaroo, matched: false },
-  { mouse, matched: false },
-  { snail, matched: false },
-  { squirrel, matched: false },
-  { zebra, matched: false },
+  { img: bear },
+  { img: cow },
+  { img: elephant },
+  { img: kangaroo },
+  { img: mouse },
+  { img: snail },
+  { img: squirrel },
+  { img: zebra },
 ];
+
+console.log(cardImages);
 
 function App() {
   const [cards, setCards] = useState([]);
@@ -30,7 +32,11 @@ function App() {
   const shuffleCards = () => {
     const shuffledCards = [...cardImages, ...cardImages]
       .sort(() => Math.random() - 0.5)
-      .map((card) => ({ img: card, id: Math.random() }));
+      .map((card) => ({
+        img: card.img,
+        id: Math.random(),
+        matched: card.matched,
+      }));
     setCards(shuffledCards);
     setTurns(0);
   };
@@ -38,22 +44,27 @@ function App() {
   const handleChoice = (card) => {
     choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
   };
+
   useEffect(() => {
     if (choiceOne && choiceTwo) {
-      if (choiceOne.img === choiceTwo.img) {
-        setCards((prevCards) => {
-          return prevCards.map((card) => {
-            if (card.img === choiceOne.img) {
-              return { ...card, matched: true };
-            } else {
-              return card;
-            }
+      new Promise((res) => {
+        setTimeout(res, 300);
+      }).then(() => {
+        if (choiceOne.img === choiceTwo.img) {
+          setCards((prevCards) => {
+            return prevCards.map((card) => {
+              if (card.img === choiceOne.img) {
+                return { ...card, matched: true };
+              } else {
+                return card;
+              }
+            });
           });
-        });
-        resetTurn();
-      } else {
-        resetTurn();
-      }
+          resetTurn();
+        } else {
+          resetTurn();
+        }
+      });
     }
   }, [choiceOne, choiceTwo]);
   const resetTurn = () => {
@@ -70,8 +81,7 @@ function App() {
       <div className="flex justify-center items-center">
         <button
           onClick={shuffleCards}
-          className="  border-[2px] rounded-[10px] bg-none cursor-pointer border-white text-lavender "
-        >
+          className="  border-[2px] rounded-[10px] bg-none cursor-pointer border-white text-lavender ">
           New game
         </button>
       </div>
@@ -88,5 +98,4 @@ function App() {
     </div>
   );
 }
-
-export default App;
+export default App
