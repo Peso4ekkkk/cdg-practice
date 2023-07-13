@@ -64,7 +64,7 @@ function App() {
           });
           resetTurn();
         } else {
-          resetTurn();
+          setTimeout(() => resetTurn(), 600);
         }
       });
     }
@@ -102,7 +102,9 @@ function App() {
           />
         ))}
       </div>
-      <p className="ml-[725px] mt-[10px] text-black text-[25px]">Turns: {turns}</p>
+      <p className="ml-[725px] mt-[10px] text-black text-[25px]">
+        Turns: {turns}
+      </p>
     </div>
   );
 }
