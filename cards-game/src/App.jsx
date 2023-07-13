@@ -91,7 +91,7 @@ function App() {
           New game
         </button>
       </div>
-      <div className="mt-[80px] ml-[725px] grid grid-cols-4 gap-2  w-[400px] h-[400px]">
+      <div className="mt-[80px] ml-[750px] grid grid-cols-4 gap-2  w-[400px] h-[400px]">
         {cards.map((card) => (
           <SingleCard
             key={card.id}
@@ -102,7 +102,7 @@ function App() {
           />
         ))}
       </div>
-      <p className="ml-[725px] mt-[10px] text-black text-[25px]">
+      <p className="ml-[750px] mt-[10px] text-black text-[25px]">
         Turns: {turns}
       </p>
     </div>
