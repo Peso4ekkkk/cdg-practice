@@ -21,13 +21,12 @@ const cardImages = [
   { img: zebra },
 ];
 
-console.log(cardImages);
-
 function App() {
   const [cards, setCards] = useState([]);
   const [turns, setTurns] = useState(0);
   const [choiceOne, setChoiceOne] = useState(null);
   const [choiceTwo, setChoiceTwo] = useState(null);
+  const [disabled, setDisabled] = useState(false);
 
   const shuffleCards = () => {
     const shuffledCards = [...cardImages, ...cardImages]
@@ -37,6 +36,8 @@ function App() {
         id: Math.random(),
         matched: card.matched,
       }));
+    setChoiceOne(null);
+    setChoiceTwo(null);
     setCards(shuffledCards);
     setTurns(0);
   };
@@ -47,6 +48,7 @@ function App() {
 
   useEffect(() => {
     if (choiceOne && choiceTwo) {
+      setDisabled(true);
       new Promise((res) => {
         setTimeout(res, 300);
       }).then(() => {
@@ -71,31 +73,37 @@ function App() {
     setChoiceOne(null);
     setChoiceTwo(null);
     setTurns((prevTurns) => prevTurns + 1);
+    setDisabled(false);
   };
-
+  useEffect(() => {
+    shuffleCards();
+  }, []);
   return (
-    <div className="App bg-greyDark  h-[100vh] w-[100%]">
-      <h1 className="flex justify-center items-cener text-[2.5rem]  text-white">
+    <div className="App  h-[100vh] w-[100%] mx-auto">
+      <h1 className="flex justify-center items-cener text-[2.5rem] mt-3 text-lavender ">
         Find a pair
       </h1>
-      <div className="flex justify-center items-center">
+      <div className="flex justify-center items-center ">
         <button
           onClick={shuffleCards}
-          className="  border-[2px] rounded-[10px] bg-none cursor-pointer border-white text-lavender ">
+          className="  border-[2px] rounded-[10px] bg-none cursor-pointer border-white text-black  bg-white w-[150px] mt-[30px] hover:bg-lavender"
+        >
           New game
         </button>
       </div>
-      <div className="card-grid mt-[50px] ml-[450px] grid grid-cols-4 gap-0.5 w-[60%]">
+      <div className="mt-[80px] ml-[725px] grid grid-cols-4 gap-2  w-[400px] h-[400px]">
         {cards.map((card) => (
           <SingleCard
             key={card.id}
             card={card}
             handleChoice={handleChoice}
             flipped={card === choiceOne || card === choiceTwo || card.matched}
+            disabled={disabled}
           />
         ))}
       </div>
+      <p className="ml-[725px] mt-[10px] text-black text-[25px]">Turns: {turns}</p>
     </div>
   );
 }
-export default App
+export default App;
