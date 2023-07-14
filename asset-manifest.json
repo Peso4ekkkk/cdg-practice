@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/cdg-practice/static/css/main.97786f8d.css",
+    "main.js": "/cdg-practice/static/js/main.66ff598a.js",
+    "static/media/snail.png": "/cdg-practice/static/media/snail.880567f462400d6a993e.png",
+    "static/media/squirrel.png": "/cdg-practice/static/media/squirrel.73e4fe0737f4edc55ae8.png",
+    "static/media/elephant.png": "/cdg-practice/static/media/elephant.3ff48ab130990ca2c0e5.png",
+    "static/media/bear.png": "/cdg-practice/static/media/bear.71278b0273b10f9b7fd8.png",
+    "static/media/cow.png": "/cdg-practice/static/media/cow.64dc2e7db5964276f43e.png",
+    "static/media/mouse.png": "/cdg-practice/static/media/mouse.35e57f67833eec3231cf.png",
+    "static/media/kangaroo.png": "/cdg-practice/static/media/kangaroo.d1e8065c09245e9fb7cc.png",
+    "static/media/zebra.png": "/cdg-practice/static/media/zebra.50d834b38f80a02ce7af.png",
+    "index.html": "/cdg-practice/index.html",
+    "main.97786f8d.css.map": "/cdg-practice/static/css/main.97786f8d.css.map",
+    "main.66ff598a.js.map": "/cdg-practice/static/js/main.66ff598a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.97786f8d.css",
+    "static/js/main.66ff598a.js"
+  ]
+}
